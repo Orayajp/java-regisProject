@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="register.Page2Controller">
+<columnConstraints>
+    <ColumnConstraints />
+</columnConstraints>
+<rowConstraints>
+    <RowConstraints />
+</rowConstraints>
+<children>
+    <Pane prefHeight="450.0" prefWidth="750.0">
+        <children>
+            <Label fx:id="infoLabel" alignment="TOP_RIGHT" layoutX="-2.0" prefHeight="50.0" prefWidth="750.0" textAlignment="RIGHT">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Label>
+            <Button fx:id="allSubBtn" layoutX="280.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleLabelAllSubject" prefHeight="25.0" prefWidth="190.0" text="All Subjects" />
+            <Button fx:id="classBtn" layoutX="280.0" layoutY="193.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" text="Class Schedule" />
+            <Button fx:id="subBtn" layoutX="278.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" text="Subjects Passed" />
+        </children>
+    </Pane>
+</children>
+</GridPane>
