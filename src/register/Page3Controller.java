@@ -13,29 +13,39 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Page3Controller implements Initializable {
-    @FXML private TableView<FileInfo> table;
-    @FXML private TableColumn<FileInfo, String> subCode;
-    @FXML private TableColumn<FileInfo, String> title;
-    @FXML private TableColumn<FileInfo, String> level;
+    @FXML private TableView table;
+    @FXML private TableColumn code,course,level;
+//    @FXML private TableColumn<FileInfo, String> subCode;
+//    @FXML private TableColumn<FileInfo, String> title;
+//    @FXML private TableColumn<FileInfo, String> level;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        subCode.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("Subjects Code"));
-        title.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("Course title"));
-        level.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("Level"));
+//       TableColumn subCode = new TableColumn("Subjects code");
+//       TableColumn title = new TableColumn("Course title");
+//       TableColumn level = new TableColumn("Level");
+//       table.getColumns().addAll(code,course,this.level);
+//       final ObservableList<FileInfo> fileInfos = FXCollections.observableArrayList(
+//                new FileInfo("20202020","Comsci","Red"));
 
-        table.setItems(getSubjectAndCode());
+       code.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("code"));
+       course.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("name"));
+       this.level.setCellValueFactory(new PropertyValueFactory<FileInfo,String>("color"));
+       table.setItems(getData());
+
+
     }
-    //test git in my project
-
-    public ObservableList<FileInfo> getSubjectAndCode(){
-        ObservableList<FileInfo> fileInfos = FXCollections.observableArrayList();
-//        ReadFile file = new ReadFile("allSubject.txt");
-//        for(int i=0;i<file.getArraySize();i++){
-//            fileInfos.add(new FileInfo(file.getSubjectCode(i),file.getSubjectName(i),file.getSubjectColor(i)));
-//        }
-        fileInfos.add(new FileInfo("202020","comSic","Red"));
-        return fileInfos;
+    //cool it help
+    public ObservableList<FileInfo> getData(){
+        ObservableList <FileInfo> list = FXCollections.observableArrayList();
+        ReadFile readFile = new ReadFile("allSubject.txt");
+        readFile.openFile();
+        readFile.readFile();
+        for(int i=0;i<readFile.getArraySize();i++){
+            list.add(new FileInfo(readFile.getSubjectCode(i),readFile.getSubjectName(i),readFile.getSubjectColor(i)));
+        }
+        readFile.closeFile();
+        return list;
     }
 }

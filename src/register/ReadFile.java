@@ -11,15 +11,15 @@ public class ReadFile {
     public ReadFile(String fileName){
         this.fileName = fileName;
     }
-    ArrayList name = new ArrayList();
-    ArrayList code = new ArrayList();
-    ArrayList color = new ArrayList();
+    ArrayList <String> name = new ArrayList();
+    ArrayList <String> code = new ArrayList();
+    ArrayList <String> color = new ArrayList();
 
     public void openFile(){
         try {
-            sc = new Scanner(new File(fileName));
+            sc = new Scanner(new File(this.fileName));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Cannot Find This File.");
         }
     }
     public void readFile(){
@@ -29,24 +29,30 @@ public class ReadFile {
             color = mes.substring(0,1);
             code = mes.substring(1,9);
             sub = mes.substring(10);
+            System.out.println(code+" "+color+" "+sub);
             name.add(sub);
             this.code.add(code);
             this.color.add(color);
         }
+    }
+
+    public void closeFile(){
         sc.close();
     }
+
     public int getArraySize(){
         return name.size();
     }
 
     public String getSubjectCode(int i){
-        return (String) code.get(i);
+        return code.get(i);
     }
 
     public String getSubjectColor(int i){
-        return (String) color.get(i);
+        return color.get(i);
     }
+
     public String getSubjectName(int i){
-        return  (String) name.get(i);
+        return name.get(i);
     }
 }
