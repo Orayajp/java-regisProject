@@ -16,6 +16,7 @@ public class Main extends Application {
         primaryStage.show();
         primaryStage.setResizable(false);
     }
+    
 //git remote add origin https://github.com/Orayajp/java-regisProject.git
 //git push -u origin master
 
