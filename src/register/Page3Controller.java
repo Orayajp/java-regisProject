@@ -39,7 +39,7 @@ public class Page3Controller implements Initializable {
     //cool it help
     public ObservableList<FileInfo> getData(){
         ObservableList <FileInfo> list = FXCollections.observableArrayList();
-        ReadFile readFile = new ReadFile("allSubject.txt");
+        ReadFile readFile = new ReadFile("allSubject");
         readFile.openFile();
         readFile.readFile();
         for(int i=0;i<readFile.getArraySize();i++){

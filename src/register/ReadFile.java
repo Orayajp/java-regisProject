@@ -29,7 +29,6 @@ public class ReadFile {
             color = mes.substring(0,1);
             code = mes.substring(1,9);
             sub = mes.substring(10);
-            System.out.println(code+" "+color+" "+sub);
             name.add(sub);
             this.code.add(code);
             this.color.add(color);
