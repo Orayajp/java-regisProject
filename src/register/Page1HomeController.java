@@ -25,11 +25,11 @@ public class Page1HomeController {
     private Button nextBtn;
     @FXML
     private Label textLabel;
+    Information information = new Information();
 
     public void handleBtnActionNext(ActionEvent e){
         textLabel.setText("");
 
-        Information information = new Information();
         if(nameField.getText().length()!=0 && surnameField.getText().length()!=0 && idField.getText().length()!= 0){
             if(checkName(nameField.getText()) && checkName(surnameField.getText()) && checkID(idField.getText())){
                 information.setName(changeFormatName(nameField.getText()));
@@ -42,11 +42,10 @@ public class Page1HomeController {
                     Scene scene = new Scene(parent);
                     Page2Controller page2 = loader.getController();
                     page2.setInfoLabel(information);
-
                     Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     stage.setScene(scene);
                     stage.show();
-          stage.show();
+//          stage.show();
 
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -56,7 +55,7 @@ public class Page1HomeController {
                 nameField.clear();
                 idField.clear();
                 surnameField.clear();
-                textLabel.setText("Name and Surname should be a letter and ID should be 10 digits.");
+                textLabel.setText("Name and Last name should be a letter and ID should be 10 digits.");
             }
         }
         else{
@@ -96,4 +95,5 @@ public class Page1HomeController {
         n=n.toLowerCase();
         return n.replaceFirst(n.substring(0,1),n.substring(0,1).toUpperCase());
     }
+
 }
